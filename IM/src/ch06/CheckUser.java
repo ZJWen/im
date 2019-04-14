@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 //dfg
+//asdasdasdas
 public class CheckUser {
 	/**
 	 * 将用户名和密码拿到服务器去验证
