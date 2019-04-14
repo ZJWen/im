@@ -4,37 +4,37 @@ import java.sql.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
-
+//dfg
 public class CheckUser {
 	/**
-	 * ½«ÓÃ»§ÃûºÍÃÜÂëÄÃµ½·şÎñÆ÷È¥ÑéÖ¤
+	 * å°†ç”¨æˆ·åå’Œå¯†ç æ‹¿åˆ°æœåŠ¡å™¨å»éªŒè¯
 	 * @param user
 	 * @param pwd
-	 * @return Èç¹ûÓÃ»§´æÔÚ·µ»Øtrue£¬Èç¹û²»´æÔÚ·µ»Øfalse
+	 * @return å¦‚æœç”¨æˆ·å­˜åœ¨è¿”å›trueï¼Œå¦‚æœä¸å­˜åœ¨è¿”å›false
 	 * @throws exception
 	 */
 	public static boolean check(String user,String pwd )throws Exception{
 		boolean falg=false;
-		//1.¼ÓÔØÊı¾İ¿âÆô¶¯
+		//1.åŠ è½½æ•°æ®åº“å¯åŠ¨
 		Class.forName("com.mysql.jdbc.Driver");
-		//2.Í¨¹ıÁ¬½Ó¹ÜÀíÀà»ñµÃÊı¾İ¿âÁ¬½Ó¶ÔÏó
+		//2.é€šè¿‡è¿æ¥ç®¡ç†ç±»è·å¾—æ•°æ®åº“è¿æ¥å¯¹è±¡
 		String url="jdbc:mysql:///im";
 		String us="root";
 		String password="root";
 		Connection conn=
 				DriverManager.getConnection(url,us,password);
-		//3.Æ´½Ó²éÑ¯×Ö·û´®
+		//3.æ‹¼æ¥æŸ¥è¯¢å­—ç¬¦ä¸²
 		String sql ="select * from users"+" where userName='"+user+"' and userPwd='"+pwd+"'";
 		System.out.println(sql);
-		//4.´´½¨Ö´ĞĞ¶ÔÏó
+		//4.åˆ›å»ºæ‰§è¡Œå¯¹è±¡
 		Statement st=conn.createStatement();
-		//5.Ö´ĞĞ²éÑ¯µÃµ½½á¹¹
+		//5.æ‰§è¡ŒæŸ¥è¯¢å¾—åˆ°ç»“æ„
 		ResultSet rs=st.executeQuery(sql);
-		//6.¶Ô²éÑ¯µÄ½á¹û½øĞĞÅĞ¶Ï
+		//6.å¯¹æŸ¥è¯¢çš„ç»“æœè¿›è¡Œåˆ¤æ–­
 		if(rs.next()){
 			falg=true;
 		}
-		//7.¹Ø±ÕËùÓĞ¶ÔÏó
+		//7.å…³é—­æ‰€æœ‰å¯¹è±¡
 		rs.close();
 		st.close();
 		conn.close();
